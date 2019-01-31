@@ -34,7 +34,7 @@ msg = {nombre:oCheckbox.name, valor:1}
 //socket.emit('event', msg_json);
 	
 }else {
-changeImage(nombre_imagen)
+//change_Image(nombre_imagen)
 
 
 msg = {nombre:oCheckbox.name, valor:0}
@@ -43,21 +43,24 @@ msg = {nombre:oCheckbox.name, valor:0}
 
 msg_json = JSON.stringify(msg);
 
-socket.emit('event', msg);
+socket.emit('event', msg_json);
 
 
 }
 
 
-function changeImage(t) {
+function change_Image(id,value) {
 	
-	var nombre = t;
-	alert(nombre.src)
-  //var image = document.getElementById(t.id);
-  if (image.src.match("bulbon")) {
+
+	//alert(nombre.src)
+  var image = document.getElementById('image'+id);
+  
+  if(value == 0)
+  {
     image.src = "pic_bulboff.gif";
-  } else {
-    image.src = "pic_bulbon.gif";
+  }else {
+      image.src = "pic_bulbon.gif";
+  
   }
 }
 

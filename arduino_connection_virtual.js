@@ -66,9 +66,11 @@ sp.on("data", function(data) {
 ipc.of.world.on('message',function(data){
 
 
+var data_out = arduino_functions.conversion_json_a_formato_ardu(data);
 
-var data_out = arduino_functions.funcion_conversion_node_ardu(data);
 
+//var data_out = JSON.parse(data);
+//console.log('---> 3 --->'+data_out);
 
 
 ///////// Tengo que confirmar que hay conexion con arduino.
@@ -95,25 +97,13 @@ if(arduino_connect){
     	
     	console.log('-----> 4 -----> '+data);
 
-    	//data es el input del pc al arduino
-    	
-    	//aqui va la funcion que simula lo que haria el arduino. en base al input, devuelve un valor (funcion del grado)
-    	
-    	//var data_sent = arduino_functions.generate_random_values();
-    	
-    	//console.log('----> 5 ----> '+data_sent);
-    	
-      //sp.writeToComputer(data_sent);
+    //FUNCION DE ARDU QUE ACTIVA LA LUZ. RETURN --> ENCENDIDO = 1, APAGADO = 0
+	sp.writeToComputer(data);
+
     });
   }
 
-setInterval(function(){ 
 
-    	//var data_sent = arduino_functions.generate_random_values();
-      //sp.writeToComputer(data_sent);
-
-
-}, 100);
 
 
 
