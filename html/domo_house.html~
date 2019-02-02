@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Project Sonar</title>
+        <title>Project Domo House</title>
 		<script src="http://localhost:8080/socket.io/socket.io.js"></script>    
         <script type="text/javascript" src="domo_house.js"></script>
+			<script src="circular_slider/js/script.js"></script>
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script> 
         
@@ -77,16 +78,8 @@
     </head>
     
         <style>
-    
-    	.classProgress {
-    	width: 100%;
-    	background-color: grey;
-		}
-		.classBar {
-    	width: 0px;
-    	height: 30px;
-    	background-color: green;
-}
+        
+		
     
     </style>
 	<script type="text/javascript">
@@ -154,7 +147,15 @@
 			
 		</td>				
 		</tr>
+		<tr>
+		<td valign="top" align="center">
 
+		<div id="container">
+		
+		</div>
+
+		</td>				
+		</tr>
    
    
    
