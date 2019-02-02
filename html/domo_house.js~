@@ -19,12 +19,27 @@ return resultado;
 
 }
 
+function change_range(id) {
+	console.log(id)
+	var slider = document.getElementById("myRange_"+id);
+	var output = document.getElementById("demo_"+id);
+	output.innerHTML = slider.value;
+	
+	msg = {nombre:id, valor:slider.value}
+
+
+
+msg_json = JSON.stringify(msg);
+
+socket.emit('event', msg_json);
+	
+}
 
 function change_checkbox(oCheckbox)
 
 {
-var id1 = oCheckbox.name.slice(-2);
-var nombre_imagen = "image"+id1;
+var id1 = oCheckbox.name.slice(-3);
+var nombre_imagen = "image_"+id1;
 
 if (get_checkbox_value(oCheckbox) == 1) {
 
@@ -53,7 +68,7 @@ function change_Image(id,value) {
 	
 
 	//alert(nombre.src)
-  var image = document.getElementById('image'+id);
+  var image = document.getElementById('image_'+id);
   
   if(value == 0)
   {
@@ -65,5 +80,17 @@ function change_Image(id,value) {
 }
 
 
+function do_on_reception(id,value) {
+	
+	console.log(id.slice(0,1))
+	
+if (id.slice(1) == 'C') {	
 
+change_Image(id,value)	
+	
+}
+
+
+
+}
 

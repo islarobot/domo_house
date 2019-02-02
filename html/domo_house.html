@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Project Sonar</title>
+        <title>Project Domo House</title>
 		<script src="http://localhost:8080/socket.io/socket.io.js"></script>    
         <script type="text/javascript" src="domo_house.js"></script>
 
@@ -20,6 +20,52 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
         
         
+<style type="text/css">
+
+
+
+.slidecontainer {
+  width: 20%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+
+</style>
+
         <script>
         
         
@@ -72,10 +118,10 @@
 		
 		<form name="oForm">
 		
-		<input onchange="change_checkbox(this)" name="test01" type="checkbox" checked data-toggle="toggle">
+		<input onchange="change_checkbox(this)" name="Check_C01" type="checkbox" checked data-toggle="toggle">
 		
 		</form>		
-		<img id="image01" src="pic_bulboff.gif" width="100" height="180">
+		<img id="image_C01" src="pic_bulboff.gif" width="100" height="180">
 
 		</td>				
 		</tr>
@@ -84,10 +130,28 @@
 		
 		<form name="oForm">
 		
-		<input onchange="change_checkbox(this)" name="test02" type="checkbox" checked data-toggle="toggle">
+		<input onchange="change_checkbox(this)" name="Check_C02" type="checkbox" checked data-toggle="toggle">
 		
 		</form>		
-				<img id="image02" src="pic_bulboff.gif" width="100" height="180">
+				<img id="image_C02" src="pic_bulboff.gif" width="100" height="180">
+		</td>				
+		</tr>
+		
+		<tr>
+		<td valign="top" align="center">
+		
+		<form name="oForm">
+		
+		<div class="slidecontainer">
+  		<input onchange="change_range('R03')" type="range" min="1" max="100" value="1" class="slider" id="myRange_R03">
+  		
+		
+		</div>
+		
+		<div id="demo_R03">
+  		</div>
+		</form>		
+			
 		</td>				
 		</tr>
 
@@ -148,9 +212,9 @@
 					//console.log('---> 8 ----> '+message)
 	                msg_in = JSON.parse(message);
                 //console.log(values_items)
-					var id2 = msg_in.nombre.slice(-2);					
+					var id2 = msg_in.nombre.slice(-3);					
 					
-					change_Image(id2,msg_in.valor);
+					do_on_reception(id2,msg_in.valor);
 						
 				
 					
@@ -160,6 +224,8 @@
 					
 					});
 					
+
+
 
 	</script>    
     
